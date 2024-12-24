@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BANNAIFUN</title>
+    <link rel="stylesheet" href="cssfile2.css">
+       
+</head>
+<body>
+    <header>
+        <h1>Bannaifan.com</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="select2.html">Listings</a>
+        <a href="form.html">Contact</a>
+    </nav>
+    
+
+    <script>
+        function filterListings() {
+            const country = document.getElementById('countryFilter').value;
+            const floors = document.getElementById('floorFilter').value;
+            const listings = document.querySelectorAll('.listing');
+
+            listings.forEach(listing => {
+                const listingCountry = listing.getAttribute('data-country');
+                const listingFloors = listing.getAttribute('data-floors');
+
+                if ((country === 'all' || listingCountry === country) &&
+                    (floors === 'all' || listingFloors === floors)) {
+                    listing.style.display = '';
+                } else {
+                    listing.style.display = 'none';
+                }
+            });
+            function applyFilters() {
+                filterListings();}
+        }
+    </script>
+    
+     <div class="container">
+        <h2></h2>
+        <div class="filters">
+            <select id="countryFilter" onchange="filterListings()">
+                <option value="all">All Countries</option>
+                <option value="Thailand">Thailand</option>
+                <option value="USA">USA</option>
+                <option value="Japan">Japan</option>
+            </select>
+            <select id="floorFilter" onchange="filterListings()">
+                <option value="all">House characteristics</option>
+                <option value="1">Condo</option>
+                <option value="2">Second-hand Home</option>
+                <option value="3">Rental Home</option>
+            </select>
+            <select id="floorFilter" onchange="filterListings()">
+                <option value="all">All Floors</option>
+                <option value="1">1 Floor</option>
+                <option value="2">2 Floors</option>
+                <option value="3">3 Floors</option>
+            </select>
+           
+            </select>
+            <a class="button" href="select2.html">Submit</a><br>
+           
+        </div>
+
+        <div class="instructions">
+            <ol>
+                <h2>How to ues?</h2>
+                <li>Visit the website: Open your web browser and go to <a href="https://bannaifan.com" target="_blank">bannaifan.com</a>.</li>
+                <li>Select your preferred country: Choose the country you wish to view from the available options.</li>
+                <li>Select the type of house: Choose the type of house you are interested in.</li>
+                <li>Select the number of floors: Choose the number of floors for the property (Note: This option does not apply to condominiums).</li>
+                <li>Click on the <strong>Submit</strong> button: Once you have made your selections, click the <em>Submit</em> button to view available properties.</li>
+                <li><strong>Select a property</strong>: If you find a property you are interested in, note down the property ID and click the <strong>Contact</strong> button.</li>
+                <li><strong>Complete the form</strong>: Fill in the required details in the contact form to inquire further about the property.</li>
+            </ol>
+        </div>
+    <footer>
+        <p>&copy; 2024 Real Estate Platform. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
